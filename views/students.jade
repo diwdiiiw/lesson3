@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 New Student
+  form(method="POST", action="/students")
+    p
+      input(type="text", placeholder="First Name", name="first_name")
+    p
+      input(type="text", placeholder="Last Name", name="last_name")
+    p
+      input(type="text", placeholder="Email", name="email")
+    button(type="submit") Submit
+
+  h2 Students List
+  ul
+    for student in students
+      li
+        a(href='/student/' + student._id ) #{student.first_name} #{student.last_name}, #{student.email}
